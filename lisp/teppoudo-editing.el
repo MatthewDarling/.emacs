@@ -8,14 +8,28 @@
   (interactive)
   (join-line -1))
 
+(defun nlinum-or-linum-mode ()
+  "Return the symbol naming the best available line numbering mode.
+
+ `nlinum-mode' is superior, but fallback to `linum-mode' if
+it isn't available."
+  (if (featurep 'nlinum)
+      (intern "nlinum-mode")
+    (intern "linum-mode")))
+
 (defun goto-line-with-feedback ()
-  "Show line numbers temporarily, while prompting for the line number input"
+  "Show line numbers temporarily, while prompting for the line number input.
+
+Resets the line numbering state to its original
+value before exiting."
   (interactive)
-  (unwind-protect
-      (progn
-        (linum-mode 1)
-        (goto-line (read-number "Goto line: ")))
-    (linum-mode -1)))
+  (let* ((preferred-linum-mode (nlinum-or-linum-mode))
+         (current-linum-state (buffer-local-value preferred-linum-mode (current-buffer))))
+    (unwind-protect
+        (progn
+          (nlinum-mode 1)
+          (goto-line (read-number "Goto line: ")))
+      (funcall preferred-linum-mode current-linum-state))))
 
 (defun smarter-move-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.
