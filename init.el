@@ -14,6 +14,10 @@
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
 (push "/usr/local/bin" exec-path)
 
+;; Don't save stuff into init.el
+(setq custom-file (expand-file-name "emacs-custom.el" user-emacs-directory))
+(when (file-exists-p custom-file) (load custom-file))
+
 ;; Setup the package management
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -31,9 +35,7 @@
 (require 'use-package)
 
 ;; Load the configuration
-(let ((custom-file (expand-file-name "emacs-custom.el" user-emacs-directory))
-      (user-config-file (expand-file-name (concat user-login-name ".el") user-emacs-directory)))
-  (when (file-exists-p custom-file) (load custom-file))
+(let ((user-config-file (expand-file-name (concat user-login-name ".el") user-emacs-directory)))
   (dolist (dir (list "lisp" "config" user-login-name))
     (let ((config-dir (expand-file-name dir user-emacs-directory)))
       (when (file-exists-p config-dir)
