@@ -43,15 +43,15 @@
                  (diminish-major-mode 'undo-tree-visualizer-mode "⅄"))
   :diminish ((undo-tree-mode . "")))
 
-(use-package browse-kill-ring :ensure t :pin melpa-stable
+(use-package browse-kill-ring :ensure t
   :config (browse-kill-ring-default-keybindings))
 
-(use-package ace-jump-mode :ensure t :pin melpa-stable
+(use-package ace-jump-mode :ensure t
   :init (autoload 'ace-jump-mode "ace-jump-mode" nil t)
   :bind (("C-." . ace-jump-mode)
          ("C-o" . ace-jump-mode)))
 
-(use-package multiple-cursors :ensure t :pin melpa-stable
+(use-package multiple-cursors :ensure t
   :bind (("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
          ("C-c C->" . mc/mark-all-like-this)

@@ -1,4 +1,5 @@
-(use-package clojure-mode :ensure t
+(use-package clojure-mode
+  :ensure t
   :init (progn
           (setq buffer-save-without-query t)
           (add-hook 'clojure-mode-hook
@@ -14,10 +15,11 @@
             (diminish-major-mode 'clojure-mode "Cλ")
             (bind-key "C-c C-z" nil clojure-mode-map))) ; Remove the binding for inferior-lisp-mode
 
-(use-package clojure-mode-extra-font-locking :ensure t)
+(use-package clojure-mode-extra-font-locking
+  :ensure t)
 
-(use-package cider :ensure t
-  :pin melpa-stable
+(use-package cider
+  :ensure t
   :init (progn
           (setq nrepl-hide-special-buffers nil
                 cider-repl-pop-to-buffer-on-connect nil
@@ -44,7 +46,8 @@
 
 (use-package cider-eval-sexp-fu :ensure t)
 
-(use-package clj-refactor :ensure t
+(use-package clj-refactor
+  :ensure t
   :init (add-hook 'clojure-mode-hook (lambda ()
                                        (clj-refactor-mode 1)
                                        (cljr-add-keybindings-with-prefix "C-c M-r")))

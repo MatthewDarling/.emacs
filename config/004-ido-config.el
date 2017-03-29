@@ -1,4 +1,4 @@
-(use-package ido-ubiquitous :ensure t :pin melpa-stable
+(use-package ido-ubiquitous :ensure t
   :config (progn
             (defun ido-imenu ()
               "Update the imenu index and then use ido to select a symbol to navigate to.
@@ -58,11 +58,11 @@ Symbols matching the text at point are put first in the completion list."
                                 (insert "~/")
                               (call-interactively 'self-insert-command))))))))
 
-(use-package flx-ido :ensure t :pin melpa-stable
+(use-package flx-ido :ensure t
   :init (setq ido-use-faces nil) ; disable ido faces to see flx highlights
   :config (flx-ido-mode t))
 
-(use-package smex :ensure t :pin melpa-stable
+(use-package smex :ensure t
   :init (setq smex-save-file (concat user-emacs-directory ".smex-items"))
   :bind (("M-x" . smex)
          ("C-x C-m" . smex)))

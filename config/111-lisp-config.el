@@ -1,6 +1,7 @@
 (global-prettify-symbols-mode +1)
 
-(use-package paredit :ensure t
+(use-package paredit
+  :ensure t
   :config (progn (defun conditionally-enable-paredit-mode ()
                    "Enable 'paredit-mode' in the minibuffer, during 'eval-expression'."
                    (if (eq this-command 'eval-expression)
