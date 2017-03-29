@@ -3,25 +3,15 @@
                  (set-face-foreground 'diff-added "green4")
                  (set-face-foreground 'diff-removed "red3")))
 
-(use-package magit :ensure t
-  :interpreter ("magit" . magit-status-mode)
-  :init (progn (setq magit-last-seen-setup-instructions "1.4.0")
+(use-package magit
+  :ensure t
+  :init (progn (setq magit-display-buffer-function
+                     #'magit-display-buffer-fullframe-status-v1)
                (setq-default magit-save-some-buffers nil
                              magit-process-popup-time 10
                              magit-diff-refine-hunk t
-                             magit-completing-read-function 'magit-ido-completing-read)
-
-               (defadvice magit-status (around magit-fullscreen activate)
-                 (window-configuration-to-register :magit-fullscreen)
-                 ad-do-it
-                 (delete-other-windows))
-
-               (defun magit-quit-session ()
-                 "Restores the previous window configuration and kills the magit buffer"
-                 (interactive)
-                 (kill-buffer)
-                 (when (get-register :magit-fullscreen)
-                   (ignore-errors (jump-to-register :magit-fullscreen)))))
+                             magit-completing-read-function 'magit-ido-completing-read
+                             magit-commit-show-diff nil))
   :bind ("C-x m" . magit-status)
   :config (progn
             (defun magit-ignore-whitespace ()
@@ -40,11 +30,9 @@
                   (magit-dont-ignore-whitespace)
                 (magit-ignore-whitespace)))
 
-            (bind-key "q" 'magit-quit-session magit-status-mode-map)
             (bind-key "C-x C-k" 'magit-kill-file-on-line magit-status-mode-map)
             (bind-key "W" 'magit-toggle-whitespace magit-status-mode-map)
-            (global-magit-wip-save-mode))
-  :diminish (magit-wip-save-mode magit-auto-revert-mode))
+            (remove-hook 'server-switch-hook 'magit-commit-diff)))
 
 (use-package git-gutter :ensure t :diminish "")
 (use-package git-gutter-fringe :ensure t
