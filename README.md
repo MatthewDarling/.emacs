@@ -25,7 +25,7 @@ Create a symlink from profiles.clj to `~/.lein/profiles.clj`.
 The easiest way is to do this is:
 
 ````
-git clone https://github.com/MatthewDarling/sandhu-emacs ~/.emacs.d
+git clone https://github.com/MatthewDarling/.emacs ~/.emacs.d
 ln -s ~/.emacs.d/profiles.clj ~/.lein/profiles.clj
 ````
 
