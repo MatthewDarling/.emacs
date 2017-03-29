@@ -5,6 +5,8 @@ This is a fork of
 changes to the core code are merely to update things for newer
 versions or be less opinionated.
 
+[See the changes](https://github.com/sandhu/emacs.d/compare/0a6c4038ed9e29ca7147cc594933fb836bfa07a3...MatthewDarling:master).
+
 ## Overriding configuration
 
 In order to override parts of the configuration, create a directory
