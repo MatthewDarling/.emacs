@@ -4,7 +4,7 @@
 (dolist (mode '(tool-bar-mode scroll-bar-mode))
   (when (fboundp mode) (funcall mode -1)))
 (when (and (fboundp 'menu-bar-mode)
-           (not (string-equal system-type "darwin")))
+           (not (equal system-type 'darwin)))
   (menu-bar-mode -1))
 (setq inhibit-startup-message t)
 (set-fringe-mode '(1 . 1))
