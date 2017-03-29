@@ -147,15 +147,16 @@ A frame height or width of more than 2000 pixels earns a size 19 font,
 otherwise it's size 16.
 
 Note that font heights are 10x what a word processor would call the font size."
-  (interactive (list (window-frame)))
+  (interactive)
   (when window-system
-    (set-face-attribute 'default
-                        frame
-                        :height
-                        (if (or (> (frame-pixel-height) 2000)
-                                (> (frame-pixel-width) 2000))
-                            190
-                          160))))
+    (let ((target (or frame (window-frame))))
+      (set-face-attribute 'default
+                          target
+                          :height
+                          (if (or (> (frame-pixel-height target) 2000)
+                                  (> (frame-pixel-width target) 2000))
+                              190
+                            160)))))
 
 ;;; Fontify current frame for startup
 (fontify-frame)
