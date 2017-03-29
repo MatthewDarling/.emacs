@@ -13,11 +13,12 @@
 
 (defun lisp-mode-setup ()
   (eldoc-mode)
-  (paredit-mode +1)
-  (whitespace-mode))
+  (paredit-mode +1))
 
 (add-hook 'lisp-mode-hook 'lisp-mode-setup)
+(add-hook 'lisp-mode-hook 'whitespace-mode)
 (add-hook 'emacs-lisp-mode-hook 'lisp-mode-setup)
+(add-hook 'emacs-lisp-mode-hook 'whitespace-mode)
 
 (add-hook 'lisp-interaction-mode-hook
           (lambda ()
