@@ -60,3 +60,5 @@
 (use-package slamhound :ensure t)
 
 (use-package latest-clojure-libraries :ensure t)
+
+(use-package kibit-helper :ensure t)
