@@ -197,6 +197,8 @@ Note that font heights are 10x what a word processor would call the font size."
             (key-chord-mode 1)
             (key-chord-define-global "§a" 'other-frame)))
 
+(use-package kibit-helper :ensure t)
+
 ;;;From using Sticky Keys on my Windows laptop, I type C-x b too quickly
 ;;;...this sends me into IBuffer 75% of the time when I want Ido instead
 ;;;So, this resolves that problem
