@@ -1,9 +1,7 @@
 # emacs.d
 
 This is a fork of
-[a mentor's Emacs config](https://github.com/sandhu/emacs.d). The
-changes to the core code are merely to update things for newer
-versions or be less opinionated.
+[a mentor's Emacs config](https://github.com/sandhu/emacs.d). My custom code is in the [```matthewdarling```](matthewdarling) folder. The "core" outside that folder has been stable and featureful for years, needing only minor revision for newer versions of Emacs and third-party packages.
 
 [See the changes](https://github.com/sandhu/emacs.d/compare/0a6c4038ed9e29ca7147cc594933fb836bfa07a3...MatthewDarling:master).
 
