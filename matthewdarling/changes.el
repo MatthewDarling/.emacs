@@ -256,7 +256,7 @@ Note that font heights are 10x what a word processor would call the font size."
 (put-clojure-indent 'extend-schema '(2)) ;;;has two special arguments
 (put-clojure-indent 'defschema '(1)) ;;;has one special argument
 (put-clojure-indent 'abstract-map-schema '(1)) ;;;has one special argument
-(put-clojure-indent 'defsystem '(2 0 nil (:defn))) ;;;has three special arguments, which have no special indentation rules, and then a bunch of argumets with defn indentation
+(put-clojure-indent 'defsystem '(2 0 nil (:defn))) ;;;has three special arguments, which have no special indentation rules, and then a bunch of arguments with defn indentation
 
 ;;; Shorten the CIDER startup help banner
 (defun cider-repl--help-banner ()
