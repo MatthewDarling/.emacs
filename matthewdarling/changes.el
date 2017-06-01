@@ -347,3 +347,28 @@ Result will be printed in a comment after the expression."
   (cider-interactive-eval nil
                           (cider-eval-and-print-into-buffer)
                           (cider-last-sexp 'bounds)))
+
+;;;###autoload
+(defun find-remote-as-root (first-user remote-server file-path)
+  "Use Tramp to open a remote file as root. Tramp can chain
+invocations using the | character. So first we tramp to the
+remote system, then tramp into the root user.
+
+When called interactively, reads the arguments from the
+minibuffer and presents some autocompletion for the remote
+server."
+  (interactive (list (let ((possible-user (read-from-minibuffer (format "Username on remote system (default 'deployer'): "))))
+                       (if (equal possible-user "")
+                           "deployer"
+                         possible-user))
+                     (completing-read-ido "Remote server: "
+                                          (with-temp-buffer
+                                            (insert-file-contents (expand-file-name "~/.ssh/known_hosts"))
+                                            (mapcar (lambda (line)
+                                                      (first (split-string line "[, ]" t)))
+                                                    (split-string (buffer-string) "\n" t))))
+                     (read-from-minibuffer "Remote file: ")))
+  (find-file (concat "/ssh:"
+                     first-user "@" remote-server
+                     "|sudo:root@" remote-server
+                     ":" file-path)))
