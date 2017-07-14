@@ -24,7 +24,7 @@
 (setq package-user-dir "~/.emacs.d/elpa/")
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-(setq package-archive-priorities '((melpa-stable . 30) (gnu . 20) (melpa . 10)))
+(setq package-archive-priorities '(("melpa-stable" . 30) ("gnu" . 20) ("melpa" . 10)))
 
 (package-initialize)
 
