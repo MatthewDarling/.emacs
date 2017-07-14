@@ -37,6 +37,10 @@
             (add-hook 'cider-connected-hook 'cider-enable-on-existing-clojure-buffers))
   :diminish " ç")
 
+;;; highlight is required by eval-sexp-fu, but it's done wrong, so
+;;; need to install it manually
+(use-package highlight :ensure t)
+
 (use-package eval-sexp-fu :ensure t
   :init (custom-set-faces '(eval-sexp-fu-flash ((t (:foreground "green4" :weight bold))))))
 
