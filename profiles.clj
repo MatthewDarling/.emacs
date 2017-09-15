@@ -27,8 +27,8 @@
             [lein-bikeshed "0.4.0"  :exclusions [org.clojure/tools.namespace]]
             [lein-kibit "0.1.2" :exclusions [org.clojure/clojure]]]}
  :repl {:repl-options {:init (set! *print-length* 100)} ;;https://github.com/clojure-emacs/cider/commit/0e35ce1eb484b88d9314c09d47a9510ff08b219f
-        :plugins [[cider/cider-nrepl "0.14.0"]
-                  [refactor-nrepl "2.2.0"]]
+        :plugins [[cider/cider-nrepl "0.15.0"]
+                  [refactor-nrepl "2.3.1"]]
         :dependencies [[org.clojure/tools.nrepl "0.2.12"]
                        [org.clojars.gjahad/debug-repl "0.3.3"]
                        [difform "1.1.2"]
