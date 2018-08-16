@@ -43,7 +43,7 @@
       org-src-preserve-indentation t)
 (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t)
                                                          (clojure . t)
-                                                         (sh . t)))
+                                                         (shell . t)))
 
 ;;; Also Emacs 25 still uses a very old Org mode, so this is necessary
 (when (not (fboundp 'org-babel--get-vars))
