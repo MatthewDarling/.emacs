@@ -128,16 +128,7 @@
 (define-key global-map [menu-bar help-menu] nil)
 
 ;;; Well, I like visible line numbers
-(use-package nlinum :ensure t
-  :init (require 'linum)
-  :config (progn
-            (defun nlinum--setup-window ()
-              (set-window-margins nil nlinum--width))
-            (set-face-attribute 'linum nil :underline nil :overline nil
-                                :italic nil :bold nil)
-            (global-nlinum-mode 1)))
-
-
+(global-display-line-numbers-mode 1)
 
 ;;; Make Emacs automatically adjust font size based on resolution
 (defun fontify-frame (&optional frame)
