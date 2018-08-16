@@ -191,6 +191,15 @@ Note that font heights are 10x what a word processor would call the font size."
 
 (use-package kibit-helper :ensure t)
 
+(use-package highlight-indent-guides :ensure t
+  :mode ((".yml" . highlight-indent-guides-mode)
+         (".yaml" . highlight-indent-guides-mode)))
+
+(use-package yaml-mode
+  :ensure t
+  :mode ((".yml" . yaml-mode)
+         (".yaml" . yaml-mode)))
+
 ;;;From using Sticky Keys on my Windows laptop, I type C-x b too quickly
 ;;;...this sends me into IBuffer 75% of the time when I want Ido instead
 ;;;So, this resolves that problem
