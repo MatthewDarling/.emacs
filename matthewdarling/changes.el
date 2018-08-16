@@ -175,8 +175,7 @@ Note that font heights are 10x what a word processor would call the font size."
 (use-package ham-mode
   ;;Transparently convert HTML files into Markdown while editing them
   :ensure t
-  :mode ((".*email.*"  . ham-mode)
-         (".html?" . ham-mode)))
+  :mode ((".*email.*.html?"  . ham-mode)))
 
 (use-package fold-dwim
   :ensure t
