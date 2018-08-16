@@ -21,4 +21,5 @@
 (use-package smex :ensure t
   :init (setq smex-save-file (concat user-emacs-directory ".smex-items"))
   :bind (("M-x" . smex)
+         ("M-X" . smex-major-mode-commands)
          ("C-x C-m" . smex)))
