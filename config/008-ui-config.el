@@ -96,9 +96,6 @@
             (append (remove 'help-mode starting-config) ; Remove help-mode from the list so we can add :stick t
                     '((help-mode :height 30 :stick t)
                       ("*Messages*" :height 30)
-                      ("*magit-commit*" :noselect t :height 40 :width 80)
-                      ("*magit-diff*" :noselect t :height 40 :width 80)
-                      ("*magit-edit-log*" :noselect t :height 15 :width 80)
                       ("*Completions*" :noselect t :height 30)
                       ("*Ido Completions*" :noselect t :height 30)
                       ("*Kill Ring*" :height 30)
