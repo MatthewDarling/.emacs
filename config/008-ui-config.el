@@ -90,20 +90,19 @@
 
 (use-package popwin :ensure t
   :init
-  (progn
-    (setq popwin:special-display-config
-          (let ((starting-config (thread-first (get 'popwin:special-display-config 'standard-value) car eval)))
-            (append (remove 'help-mode starting-config) ; Remove help-mode from the list so we can add :stick t
-                    '((help-mode :height 30 :stick t)
-                      ("*Messages*" :height 30)
-                      ("*Completions*" :noselect t :height 30)
-                      ("*Ido Completions*" :noselect t :height 30)
-                      ("*Kill Ring*" :height 30)
-                      ("*Compile-Log*" :height 30)
-                      ("*auto-async-byte-compile*" :height 14 :position bottom)
-                      ("*nREPL doc*" :height 30 :position bottom)
-                      ("*nREPL error*" :height 30 :position bottom)
-                      ("*nREPL inspect*" :height 20 :position bottom)
-                      ("*nREPL Macroexpansion*" :height 30 :position bottom)
-                      ("nREPL-tmp" :height 30 :position bottom)))))
-    (popwin-mode 1)))
+  (setq popwin:special-display-config
+        (let ((starting-config (thread-first (get 'popwin:special-display-config 'standard-value) car eval)))
+          (append (remove 'help-mode starting-config) ; Remove help-mode from the list so we can add :stick t
+                  '((help-mode :height 30 :stick t)
+                    ("*Messages*" :height 30)
+                    ("*Completions*" :noselect t :height 30)
+                    ("*Ido Completions*" :noselect t :height 30)
+                    ("*Kill Ring*" :height 30)
+                    ("*Compile-Log*" :height 30)
+                    ("*auto-async-byte-compile*" :height 14 :position bottom)
+                    ("*nREPL doc*" :height 30 :position bottom)
+                    ("*nREPL error*" :height 30 :position bottom)
+                    ("*nREPL inspect*" :height 20 :position bottom)
+                    ("*nREPL Macroexpansion*" :height 30 :position bottom)
+                    ("nREPL-tmp" :height 30 :position bottom)))))
+  :config (popwin-mode 1))
