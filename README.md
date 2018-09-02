@@ -14,7 +14,7 @@ after the rest of the configuration has been loaded.
 
 ## Requirements
 
-* Emacs 25.1 or greater
+* Emacs 26 or greater
 
 ## Installation
 
