@@ -34,7 +34,31 @@
             (add-to-list 'same-window-buffer-names "*cider*")
             (add-hook 'cider-mode-hook 'eldoc-mode)
             (add-hook 'cider-repl-mode-hook 'lisp-mode-setup)
-            (add-hook 'cider-connected-hook 'cider-enable-on-existing-clojure-buffers))
+            (add-hook 'cider-connected-hook 'cider-enable-on-existing-clojure-buffers)
+
+            ;;; Save CIDER REPL history every 5 minutes
+            ;;; The default behaviour is to only save it when the REPL
+            ;;; connection is closed, which has made me sad many times
+            ;;; Via https://stackoverflow.com/a/24009529/1137749
+            (defvar-local cider-save-history-timer nil
+              "Buffer-local timer for saving CIDER repl history periodically.")
+            (defun save-this-buffer-repl-history (buf)
+              "Callback function for `cider-save-history-timer'."
+              (when (buffer-live-p buf)
+                (with-current-buffer buf
+                  (cider-repl-history-just-save))))
+            (defun start-repl-save-timer ()
+              "Function to hook onto `cider-repl-mode' for auto-saving the REPL history."
+              (setq cider-save-history-timer
+                    (run-with-timer 0
+                                    300
+                                    'save-this-buffer-repl-history
+                                    (current-buffer))))
+            (add-hook 'cider-repl-mode-hook 'start-repl-save-timer)
+            (add-hook 'kill-buffer-hook
+                      (lambda ()
+                        (when (timerp cider-save-history-timer)
+                          (cancel-timer cider-save-history-timer)))))
   :diminish " ç")
 
 ;;; highlight is required by eval-sexp-fu, but it's done wrong, so
