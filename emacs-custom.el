@@ -12,9 +12,12 @@
  '(cider-inject-dependencies-at-jack-in nil)
  '(cider-jack-in-auto-inject-clojure nil)
  '(cider-lein-parameters "repl :headless")
+ '(org-modules
+   (quote
+    (org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-protocol org-rmail org-w3m org-mac-link)))
  '(package-selected-packages
    (quote
-    (highlight use-package visual-regexp markdown-mode eval-sexp-fu cider company paredit git-gutter which-key clojure-mode wgrep-ag web-mode visual-regexp-steroids undo-tree string-utils solarized-theme smex smartscan slamhound shell-pop reveal-in-osx-finder rainbow-mode rainbow-delimiters projectile powerline popwin org-present nlinum magit lorem-ipsum latest-clojure-libraries kibit-helper key-chord js2-mode ido-vertical-mode ibuffer-vc hideshowvis ham-mode golden-ratio git-link git-gutter-fringe fold-dwim flx-ido expand-region es-mode ensime emmet-mode elisp-slime-nav datomic-snippets company-quickhelp clojure-mode-extra-font-locking cljsbuild-mode clj-refactor cider-eval-sexp-fu buffer-move browse-kill-ring beginend auto-indent-mode annoying-arrows-mode ag ace-window ace-jump-mode)))
+    (clj-refactor cider ido-ubiquitous highlight-indent-guides yaml-mode go-mode org-present org-plus-contrib python-mode sql-indent highlight use-package visual-regexp markdown-mode eval-sexp-fu company paredit git-gutter which-key clojure-mode wgrep-ag web-mode visual-regexp-steroids undo-tree string-utils solarized-theme smex smartscan slamhound shell-pop reveal-in-osx-finder rainbow-mode rainbow-delimiters projectile powerline popwin magit lorem-ipsum latest-clojure-libraries kibit-helper key-chord js2-mode ido-vertical-mode ibuffer-vc hideshowvis ham-mode golden-ratio git-link git-gutter-fringe fold-dwim flx-ido expand-region es-mode ensime emmet-mode elisp-slime-nav datomic-snippets company-quickhelp clojure-mode-extra-font-locking cljsbuild-mode cider-eval-sexp-fu buffer-move browse-kill-ring beginend auto-indent-mode annoying-arrows-mode ag ace-window ace-jump-mode)))
  '(shell-pop-shell-type
    (quote
     ("eshell" "*eshell*"
