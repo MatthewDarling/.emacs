@@ -170,7 +170,8 @@ Note that font heights are 10x what a word processor would call the font size."
   :ensure t
   :diminish "Au"
   :config (progn (golden-ratio-mode 1)
-                 (golden-ratio-toggle-widescreen)))
+                 (golden-ratio-toggle-widescreen)
+                 (add-to-list 'golden-ratio-extra-commands 'ace-window)))
 
 (use-package ham-mode
   ;;Transparently convert HTML files into Markdown while editing them
