@@ -10,11 +10,11 @@
             [lein-immutant "2.1.0"]
 
             ;; Automated testing
-            [lein-cloverage "1.0.9"]
+            [lein-cloverage "1.0.10"]
             [lein-test-out "0.3.1" :exclusions [org.clojure/tools.namespace]]
 
             ;; Package management
-            [lein-ancient "0.6.10" :exclusions [org.clojure/clojure]]
+            [lein-ancient "0.6.14" :exclusions [org.clojure/clojure]]
             [lein-licenses "0.2.0"]
 
             ;; Documentation
@@ -23,14 +23,13 @@
 
             ;; Static analysis
             [lein-typed "0.3.5"]
-            [jonase/eastwood "0.2.3"]
+            [jonase/eastwood "0.3.4"]
             [lein-bikeshed "0.4.0"  :exclusions [org.clojure/tools.namespace]]
-            [lein-kibit "0.1.2" :exclusions [org.clojure/clojure]]]}
+            [lein-kibit "0.1.6" :exclusions [org.clojure/clojure]]]}
  :repl {:repl-options {:init (set! *print-length* 100)} ;;https://github.com/clojure-emacs/cider/commit/0e35ce1eb484b88d9314c09d47a9510ff08b219f
-        :plugins [[cider/cider-nrepl "0.15.0"]
-                  [refactor-nrepl "2.3.1"]]
-        :dependencies [[org.clojure/tools.nrepl "0.2.12"]
-                       [org.clojars.gjahad/debug-repl "0.3.3"]
+        :plugins [[cider/cider-nrepl "0.20.0"]
+                  [refactor-nrepl "2.4.0"]]
+        :dependencies [[org.clojars.gjahad/debug-repl "0.3.3"]
                        [difform "1.1.2"]
 
                        [spyscope "0.1.5"] ;;;use 0.1.6 for Clojure 1.7+
