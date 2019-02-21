@@ -24,6 +24,10 @@
 (setq package-user-dir "~/.emacs.d/elpa/")
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+;;; GNU ELPA has been down for several weeks in early 2019, remove it for now
+;;; Also, this syntax is horrible, will be better in Emacs 27 apparently:
+;;; https://stackoverflow.com/a/54602877/1137749
+(setq package-archives (delq (assoc "gnu" package-archives) package-archives))
 (setq package-archive-priorities '(("melpa-stable" . 30) ("gnu" . 20) ("melpa" . 10)))
 
 (package-initialize)
