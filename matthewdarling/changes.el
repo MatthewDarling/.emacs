@@ -125,6 +125,7 @@
 ;;; But these things only show the absolute basics, not useful if you know Emacs
 (define-key global-map [menu-bar file] nil)
 (define-key global-map [menu-bar edit] nil)
+(define-key global-map [menu-bar options] nil)
 (define-key global-map [menu-bar help-menu] nil)
 
 ;;; Well, I like visible line numbers
